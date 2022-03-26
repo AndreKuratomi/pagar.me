@@ -4,7 +4,7 @@ from rest_framework.generics import ListCreateAPIView
 
 from user.models import User
 from user.serializers import UserSerializer
-from user.permissions import isAdmin
+from user.permissions import IsAdmin
 
 
 class UserView(ListCreateAPIView):
@@ -12,4 +12,4 @@ class UserView(ListCreateAPIView):
     serializer_class = UserSerializer
 
     authentication_classes = [TokenAuthentication]
-    permission_classes = [isAdmin]
+    permission_classes = [IsAdmin]
