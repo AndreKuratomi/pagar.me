@@ -47,7 +47,7 @@ class CustomUserManager(BaseUserManager):
 class User(AbstractUser):
     id = models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, unique=True)
 
-    email = models.EmailField(editable=True, max_length=255, unique=True)
+    email = models.CharField(max_length=255, unique=True)
     password = models.CharField(max_length=255)
 
     first_name = models.CharField(max_length=255)
@@ -63,21 +63,6 @@ class User(AbstractUser):
     objects = CustomUserManager()
 
 
-# Sobre Usuários (User):
-# A aplicação terá 3 tipos de usuário:
-
-# Administrador - is_seller=False, is_admin=True
-
-# Vendedor - is_seller=True, is_admin=False
-
-# Comprador - is_seller=False, is_admin=False
-
-# Requisitos:
-# O id deverá ser do tipo uuid.
-# O campo de identificação exclusivo do usuário será o e-mail.
-# Somente administradores poderão visualizar a lista de usuários no sistema.
-# A criação dos usuários não deverá ter nenhum tipo de autenticação.
-# O campo de password não deve ser retornado para o usuário.
-# Tratamentos de Erros:
-# Caso seja feita a tentativa de algum usuário cujo e-mail já esteja cadastrado no sistema, a resposta deverá ser:
-# STATUS 400 - {"email": ["user with this email already exists."]}
+# class Login(models.Model):
+#     email = models.CharField(max_length=255, unique=True)
+#     password = models.CharField(max_length=255, unique=False)
