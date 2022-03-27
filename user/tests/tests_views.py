@@ -1,6 +1,6 @@
 from rest_framework.test import APITestCase
 
-# from user.models import User
+from user.models import User
 
 
 class UserViewTests(APITestCase):
@@ -64,3 +64,42 @@ class UserViewTests(APITestCase):
 
         self.assertEqual(response.status_code, 400)
         self.assertIn('email', response.json())
+
+
+# class LoginUserViewTest(APITestCase):
+#     def setUp(self) -> None:
+#         User.objects.create_user(
+#             email="andre@mail.com",
+#             password="zxcvasdf"
+#         )
+
+#     def test_login_success(self):
+#         login_data = {
+#             "email": "andre@mail.com",
+#             "password": "zxcvasdf"
+#         }
+
+#         response = self.client.post('/api/login/', login_data)
+
+#         self.assertEqual(response.status_code, 200)
+#         self.assertIn('token', response.json())
+
+#     def test_login_invalid_credentials1(self):
+#         login_data = {
+#             "email": "richarson@notmail.com",
+#             "password": "qwerty"
+#         }
+
+#         response = self.client.post('/api/login/', login_data)
+
+#         self.assertEqual(response.status_code, 401)
+
+#     def test_login_invalid_credentials2(self):
+#         login_data = {
+#             "email": "andre@mail.com",
+
+#         }
+
+#         response = self.client.post('/api/login/', login_data)
+
+#         self.assertEqual(response.status_code, 401)
