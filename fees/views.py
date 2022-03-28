@@ -18,15 +18,15 @@ class FeeView(ListCreateAPIView):
     queryset = Fee.objects.all()
     serializer_class = FeeSerializer
 
-    # authentication_classes = [TokenAuthentication]
-    # permission_classes = [IsAdmin]
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAdmin]
 
 
 class FeeByIdView(ListCreateAPIView):
     queryset = Fee.objects.all()
     serializer_class = FeeSerializer
 
-    # authentication_classes = [TokenAuthentication]
-    # permission_classes = [IsAdmin]
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAdmin]
 
     lookup_url_kwarg = "fee_id"
