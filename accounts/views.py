@@ -31,11 +31,6 @@ class LoginUserView(APIView):
             return Response(status=status.HTTP_401_UNAUTHORIZED)
 
 
-# class LoginView(CreateAPIView):
-#     queryset = Login.objects.all()
-#     serializer_class = LoginUserSerializer
-
-
 class UserView(ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
