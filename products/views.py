@@ -12,8 +12,8 @@ class ProductView(ListCreateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
-    # authentication_classes = [TokenAuthentication]
-    # permission_classes = [IsSeller]
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsSeller]
 
 
 class ProductByIdView(ListCreateAPIView):
