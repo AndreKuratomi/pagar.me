@@ -9,14 +9,7 @@ class Product(models.Model):
 
     description = models.CharField(max_length=255)
     quantity = models.IntegerField()
+    price = models.FloatField()
     is_active = models.BooleanField(default=True)
 
-    seller = models.ForeignKey("accounts.User", null=True, on_delete=models.DO_NOTHING, related_name="products")
-
-
-# Requisitos:
-# Somente vendedores poderão cadastrar e atualizar seus próprios produtos.
-
-# Não será possível a exclusão definitiva de produtos, ao invés disso, será feito um soft delete, 
-# através do campo is_active, o vendedor poderá mudar o campo is_active através de uma atualização do produto. 
-# Logo, não haverá uma rota de DELETE.
+    seller = models.ForeignKey("accounts.User", on_delete=models.PROTECT, related_name="products")
