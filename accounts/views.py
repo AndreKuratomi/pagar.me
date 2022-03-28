@@ -8,9 +8,9 @@ from rest_framework.generics import ListCreateAPIView
 
 from django.contrib.auth import authenticate
 
-from user.models import User
-from user.serializers import LoginSerializer, UserSerializer
-from user.permissions import IsAdmin
+from accounts.models import User
+from accounts.serializers import LoginSerializer, UserSerializer
+from accounts.permissions import IsAdmin
 
 import ipdb
 
@@ -18,7 +18,7 @@ import ipdb
 class LoginUserView(APIView):
     def post(self, request):
         serializer = LoginSerializer(data=request.data)
-
+        print(serializer)
         if not serializer.is_valid():
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
