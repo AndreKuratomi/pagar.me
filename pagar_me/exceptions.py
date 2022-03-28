@@ -1,20 +1,11 @@
 from rest_framework.exceptions import APIException
 
 
-# class UserAlreadyExistsError(APIException):
-#     status_code = '422'
-#     default_detail = {"message": ["This user already exists"]}
-
-
-# class PatientAlreadyExistsError(APIException):
-#     status_code = '422'
-#     default_detail = {"message": ["This patient already exists"]}
-
-class InvalidCredentialsError(APIException):
+class InvalidTokenError(APIException):
     status_code = '401'
-    default_detail = {"message": ["Invalid credentials"]}
+    default_detail = {"detail": ["Invalid token."]}
 
 
-class NegativeQuantityError(APIException):
-    status_code = '401'
-    default_detail = {"message": ["'quantity' field cannot be negative"]}
+class NotPermitedUserError(APIException):
+    status_code = '403'
+    default_detail = {"detail": ["You do not have permission to perform this action."]}
