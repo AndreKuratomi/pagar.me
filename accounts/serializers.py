@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 # from pagar_me.exceptions import InvalidCredentialsError
-from user.models import User
+from accounts.models import User
 
 
 class UserSerializer(serializers.ModelSerializer):
