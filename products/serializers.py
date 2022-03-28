@@ -1,7 +1,6 @@
 from rest_framework import serializers
 from accounts.serializers import UserSerializer
 
-from pagar_me.exceptions import NegativeQuantityError
 from products.models import Product
 
 import ipdb
