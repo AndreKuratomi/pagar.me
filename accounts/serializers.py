@@ -3,6 +3,8 @@ from rest_framework import serializers
 # from pagar_me.exceptions import InvalidCredentialsError
 from accounts.models import User
 
+import ipdb
+
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -12,6 +14,11 @@ class UserSerializer(serializers.ModelSerializer):
         extra_kwargs = {
             "password": {'write_only': True}
         }
+
+    def create(self, validated_data):
+        user = User.objects.create_user(email=validated_data['email'], password=validated_data['password'], first_name=validated_data['first_name'], last_name=validated_data['last_name'], is_seller=validated_data['is_seller'], is_admin=validated_data['is_admin'])
+
+        return user
 
 
 class LoginSerializer(serializers.Serializer):
