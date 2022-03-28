@@ -1,21 +1,29 @@
 from rest_framework import serializers
+from accounts.serializers import UserSerializer
 
 from pagar_me.exceptions import NegativeQuantityError
 from products.models import Product
+
+import ipdb
 
 
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ["id", "description", "quantity", "is_active", "seller"]
+        fields = "__all__"
 
-        def validate(self, attrs):
-            quantity = attrs['quantity']
-            print(quantity)
+        extra_kwargs = {
+            "quantity": {'min_value': 0}
+        }
 
-            is_quantity_not_positive = Product.objects.filter(quantity=quantity).exists()
-            print(is_quantity_not_positive)
-            if is_quantity_not_positive < 0:
-                raise NegativeQuantityError
+    seller = UserSerializer(read_only=True)
 
-            return super().validate(attrs)
+
+class ProductListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = "__all__"
+
+        extra_kwargs = {
+            "seller": {'read_only': True}
+        }
