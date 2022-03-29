@@ -69,7 +69,7 @@ code .
 
 Para ter acesso ao descrições detalhes das rotas e seus retornos, conferir documentação completa no link a seguir:
 
-[https://insomnia-abkura.vercel.app/]
+https://pagar-me-documentation.vercel.app/
 
 # Termos de uso
 
