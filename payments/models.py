@@ -3,7 +3,7 @@ from django.db import models
 import uuid
 
 
-class Payment(models.Model):
+class PaymentInfo(models.Model):
     id = models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, unique=True)
 
     payment_method = models.CharField(max_length=255)
