@@ -1,13 +1,13 @@
 from rest_framework import serializers
 
-from payments.models import Payment
+from payments.models import PaymentInfo
 
 import ipdb
 
 
 class PaymentSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Payment
+        model = PaymentInfo
         fields = "__all__"
 
         extra_kwargs = {
@@ -25,7 +25,7 @@ class PaymentSerializer(serializers.ModelSerializer):
 # STATUS - 400 - { "error": ["This card is expired"]}
         card_number = attrs["card_number"]
         final_result = ""
-        counter == 0
+        counter = 0
         for digits in card_number:
             counter = counter + 1
             if counter > 12:
