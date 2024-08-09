@@ -13,4 +13,4 @@ class NotPermitedUserError(APIException):
 
 class NotFoundSellerError(APIException):
     status_code = '404'
-    default_detail = {"detail": ["You do not have permission to perform this action."]}
+    default_detail = {"detail": ["Seller not found!"]}
