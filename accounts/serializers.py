@@ -1,7 +1,7 @@
 from wsgiref import validate
 from rest_framework import serializers
 
-# from pagar_me.exceptions import InvalidCredentialsError
+# from pagar_me_project.exceptions import InvalidCredentialsError
 from accounts.models import User
 
 import ipdb
