@@ -44,7 +44,7 @@ class ProductByIdView(RetrieveUpdateAPIView):
 class ProductBySellerIdView(ListAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductListSerializer
-    print(serializer_class)
+
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsSeller]
 
