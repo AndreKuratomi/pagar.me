@@ -4,12 +4,12 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.authtoken.models import Token
 from rest_framework.authentication import TokenAuthentication
-from rest_framework.generics import ListCreateAPIView
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateAPIView
 
 from django.contrib.auth import authenticate
 
 from accounts.models import User
-from accounts.serializers import LoginSerializer, UserSerializer
+from accounts.serializers import LoginSerializer, UserListSerializer, UserSerializer
 from accounts.permissions import IsAdmin
 
 import ipdb
@@ -37,3 +37,15 @@ class UserView(ListCreateAPIView):
 
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAdmin]
+
+
+class UserByIdView(RetrieveUpdateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserListSerializer
+
+    authentication_classes = [TokenAuthentication]
+    # permission_class = [] ? only the own user may update its data
+
+    lookup_url_kwarg = "user_id"
+
+    # and how to only inactivate a user? is_active as permission to login and update ist own data

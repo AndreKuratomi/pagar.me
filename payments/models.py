@@ -9,7 +9,7 @@ class PaymentInfo(models.Model):
     payment_method = models.CharField(max_length=255)
     card_number = models.CharField(max_length=255)
     cardholders_name = models.CharField(max_length=255)
-    card_expiring_date = models.CharField(max_length=255)
+    card_expiring_date = models.DateField()
     cvv = models.IntegerField()
     is_active = models.BooleanField(default=True)
 

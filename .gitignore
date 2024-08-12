@@ -1,3 +1,7 @@
 venv/
+
 *.pyc
 *.sqlite3
+*/migrations/00*
+
+ISSUES.txt

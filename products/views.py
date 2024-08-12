@@ -6,7 +6,7 @@ from rest_framework.generics import ListCreateAPIView, RetrieveUpdateAPIView, Li
 from rest_framework.mixins import CreateModelMixin
 from rest_framework.response import Response
 from accounts.models import User
-from pagar_me.exceptions import NotFoundSellerError
+from pagar_me_project.exceptions import NotFoundSellerError
 
 from products.models import Product
 from products.serializers import ProductListSerializer, ProductSerializer
@@ -44,7 +44,7 @@ class ProductByIdView(RetrieveUpdateAPIView):
 class ProductBySellerIdView(ListAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductListSerializer
-    print(serializer_class)
+
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsSeller]
 
