@@ -11,6 +11,7 @@ import ipdb
 class PaymentSerializer(serializers.ModelSerializer):
 
     card_expiring_date = serializers.DateField(format="%d-%m-%Y")
+    card_number_last_4 = serializers.SerializerMethodField() # 
 
     class Meta:
         model = PaymentInfo
@@ -19,8 +20,13 @@ class PaymentSerializer(serializers.ModelSerializer):
         extra_kwargs = {
             "is_active": {'read_only': True},
             "cvv": {'write_only': True},
-            "customer": {'read_only': True}
+            "customer": {'read_only': True},
+            "card_number": {'write_only': True}
         }
+
+    def get_card_number_last_4(self, obj):
+        card_number = obj.card_number
+        return card_number[-4:] if card_number else ""
 
     def validate(self, attrs):
         # Expiring date:
@@ -41,22 +47,8 @@ class PaymentSerializer(serializers.ModelSerializer):
         card_number_typed = attrs["card_number"]
         if len(card_number_typed) < 16:
             raise SyntaxError({"Error": "Verify card number digits! It needs to be 16."}) 
-        # Payment method:
 
-        # Não será possível o cadastro do mesmo cartão para o usuário, exceto, caso o método de pagamento seja
-        #  diferente, ou seja, 2 cartões iguais porém um é de crédito e o outro é de débito.
-        
-        payment_method_typed = attrs["payment_method"]
-        do_we_have_already_this_card = PaymentInfo.objects.filter(card_number=card_number_typed)
-        is_this_card_already_used_with_this_method = PaymentInfo.objects.filter(payment_method=payment_method_typed)
-
-        if do_we_have_already_this_card and is_this_card_already_used_with_this_method:
-            raise ValueError({"error": "This card is already registered for this user"})
-            # return Response({"error": "This card is already registered for this user"}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
-            # return Response({"Error": "This card number is already registered!"}, status=status.HTTP_409_CONFLICT)
-        # Caso o cartão a ser criado já esteja cadastrado para o usuário, a resposta deverá ser:
-        # STATUS 422 - {"error": ["This card is already registered for this user"]}
-
+        # Display card number last 4 digits:
         final_result = ""
         counter = 0
         for digits in card_number_typed:
@@ -72,8 +64,20 @@ class PaymentSerializer(serializers.ModelSerializer):
             if cardholders_name != user_full_name:
                 raise serializers.ValidationError({"error": "The cardholders_name must be the same of the user credentials."})
 
-        # List cards:
-        # display cards with is-active False if card_expiring_date is gone:
+        # Payment method:
+        # Não será possível o cadastro do mesmo cartão para o usuário, exceto, caso o método de pagamento seja
+        #  diferente, ou seja, 2 cartões iguais porém um é de crédito e o outro é de débito.
+        
+        payment_method_typed = attrs["payment_method"]
+
+        user_list_payment_methods = PaymentInfo.objects.filter(cardholders_name=user_full_name)
+
+        if payment_method_typed in user_list_payment_methods:
+            raise ValueError({"error": "This card and method is already registered for this user"})
+            # return Response({"error": "This card is already registered for this user"}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+            # return Response({"Error": "This card number is already registered!"}, status=status.HTTP_409_CONFLICT)
+        # Caso o cartão a ser criado já esteja cadastrado para o usuário, a resposta deverá ser:
+        # STATUS 422 - {"error": ["This card is already registered for this user"]}
 
         return super().validate(attrs)
 
