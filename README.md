@@ -152,7 +152,7 @@ py manage.py runserver
 
 For full description of endpoints and its responses check the insomnia documentation on the link bellow:
 
-https://pagar-me-documentation.vercel.app/
+https://pagar-5frujasuz-abkuras-projects.vercel.app/
 
 <br>
 
@@ -162,6 +162,8 @@ https://pagar-me-documentation.vercel.app/
 - [Django Rest Framework](https://www.django-rest-framework.org/)
 - [Generic views](https://www.django-rest-framework.org/api-guide/generic-views/)
 - [Git](https://git-scm.com/downloads)
+- [Insomnia-documenter](https://www.npmjs.com/package/insomnia-documenter)
+- [Insomnia-documenter (quick tutorial)](https://www.youtube.com/watch?v=pq2u3FqVVy8)
 - [Python](https://www.python.org/downloads/)
 - [SQLite3](https://docs.python.org/3/library/sqlite3.html)
 - [Visual Studio Code (VSCode)](https://code.visualstudio.com/)
