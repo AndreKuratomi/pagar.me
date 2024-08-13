@@ -12,7 +12,7 @@
 ## Translates
 
 - [English](https://github.com/AndreKuratomi/pagar.me)
-- [Português brasileiro / Brazilian portuguese](/multilingual_readmes/README_pt-br.md)
+- [Português brasileiro / Brazilian portuguese](./.multilingual_readmes/README_pt-br.md)
 
 
 <br>
