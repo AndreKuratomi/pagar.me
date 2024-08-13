@@ -1,4 +1,5 @@
 venv/
+insomnia/
 
 *.pyc
 *.sqlite3
