@@ -39,22 +39,18 @@ git init
 ```
 <br>
 
-<h3>1. Fazer o clone do repositório 'controle_de_iscas' na sua máquina pelo terminal do computador ou pelo do IDE:</h3>
+<h3>1. Fazer o clone do repositório 'pagar.me' na sua máquina pelo terminal do computador ou pelo do IDE:</h3>
 
 ```
-git clone origin https://<seu_personal_token>@github.com/JC-GESTAO-DE-RISCOS/controle_de_iscas.git
+git clone https://github.com/AndreKuratomi/pagar.me.git
 ```
-
-Obs: É preciso clonar o repositório com o seu token por se tratar de um repositório privado.
-
-Caso ainda não tenha personal token do github basta seguir o passo a passo neste [link](https://docs.github.com/pt/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
 WINDOWS:
 
 Obs: Caso apareca algum erro semelhante a este: 
 
 ```
-unable to access 'https://github.com/JC-GESTAO-DE-RISCOS/controle_de_iscas.git': SSL certificate problem: self-signed certificate in certificate chain
+unable to access 'https://github.com/AndreKuratomi/pagar.me.git': SSL certificate problem: self-signed certificate in certificate chain
 ```
 
 Configure o git para desabilitar a certificação SSL:
@@ -66,7 +62,7 @@ git config --global http.sslVerify "false"
 <p>Entrar na pasta criada:</p>
 
 ```
-cd controle_de_iscas
+cd pagar.me
 ```
 <br>
 
