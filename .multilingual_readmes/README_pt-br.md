@@ -10,7 +10,7 @@
 
 ## Traduções
 
-- [English](https://github.com/AndreKuratomi/pagar.me)
+- [English / Inglês](https://github.com/AndreKuratomi/pagar.me)
 - [Português brasileiro](./README_pt-br.md)
 
 
