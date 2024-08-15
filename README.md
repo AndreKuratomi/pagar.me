@@ -2,6 +2,8 @@
 
 - [Translates](#translates)
 - [About](#about)
+- [Diagram](#diagram)
+- [Description](#Description)
 - [Instalation](#instalation)
 - [Documentation](#documentation)
 - [References](#references)
@@ -14,12 +16,20 @@
 - [English](https://github.com/AndreKuratomi/pagar.me)
 - [Português brasileiro / Brazilian portuguese](./.multilingual_readmes/README_pt-br.md)
 
-
 <br>
 
 ## About
 
 <p>The API <strong>Pagar.me</strong> is a simplified version of a market place and it is also a payment system where it is possible to buy products and process payments. This API uses python's framework <strong>Django</strong> and its <strong>Generic Views</strong>.</p>
+
+<br>
+
+## Diagram
+
+<figure>
+    <img src="./pagar_me.drawio.png" alt="diagram of table relationships">
+    <figcaption style="text-align: center">Table relationshipts</figcaption>
+</figure>
 
 <br>
 

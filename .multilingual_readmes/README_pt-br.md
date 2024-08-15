@@ -2,6 +2,8 @@
 
 - [Sobre](#sobre)
 - [Instalação](#instalação)
+- [Diagrama](#diagrama)
+- [Descrição](#Description)
 - [Documentação](#documentação)
 - [Referências](#referências)
 - [Termos de uso](#termos-de-uso)
@@ -13,12 +15,26 @@
 - [English / Inglês](https://github.com/AndreKuratomi/pagar.me)
 - [Português brasileiro](./README_pt-br.md)
 
-
 <br>
 
 ## Sobre
 
 <p><strong>Pagar.me</strong> é uma versão simplificada de um market place e também um sistema de pagamentos, onde é possível comprar produtos e processar transações. Esta aplicação utiliza o framework <strong>Django</strong> e suas <strong>Generic Views</strong>.</p>
+
+<br>
+
+## Diagrama
+
+<figure>
+    <img src="../pagar_me.drawio.png" alt="diagrama de tabelas">
+    <figcaption style="text-align: center">Relacionamento das tableas</figcaption>
+</figure>
+
+<br>
+
+## Descrição
+
+
 
 <br>
 
