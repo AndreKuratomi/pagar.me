@@ -1,6 +1,6 @@
 # PAGAR.ME
 
-- [Translates](#translates)
+- [Translations](#translations)
 - [About](#about)
 - [Diagram](#diagram)
 - [Description](#Description)
