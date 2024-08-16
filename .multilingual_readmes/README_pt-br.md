@@ -2,6 +2,8 @@
 
 - [Sobre](#sobre)
 - [Instalação](#instalação)
+- [Diagrama](#diagrama)
+- [Descrição](#Description)
 - [Documentação](#documentação)
 - [Referências](#referências)
 - [Termos de uso](#termos-de-uso)
@@ -13,12 +15,74 @@
 - [English / Inglês](https://github.com/AndreKuratomi/pagar.me)
 - [Português brasileiro](./README_pt-br.md)
 
-
 <br>
 
 ## Sobre
 
-<p><strong>Pagar.me</strong> é uma versão simplificada de um market place e também um sistema de pagamentos, onde é possível comprar produtos e processar transações. Esta aplicação utiliza o framework <strong>Django</strong> e suas <strong>Generic Views</strong>.</p>
+<p>A API <strong>Pagar.me</strong> é uma versão simplificada de um market place e também um sistema de pagamentos, onde é possível comprar produtos e processar transações. Esta aplicação utiliza o framework <strong>Django</strong> e suas <strong>Generic Views</strong>.</p>
+
+<br>
+
+## Descrição
+
+A API <b>Pagar.me</b> possui 4 tabelas  base: Usuários (Accounts), produtos (Product), taxas por transação (Fee), e informações de pagamento (PaymentInfo). Seguem as descrições sucintas de cada uma e suas regras de cadastro:
+
+USUÁRIOS:
+    
+    Tipos:
+
+        Existem 3 tipos de usuários: Vendedor (seller), Administrador (admin) e o usuário comum (aquele que não é nem vendedor nem administrador):
+    
+    Permissões:
+        - Apenas usuários administradores logados podem cadastrar outro usuário e listá-los.
+        - Todos os usuários logados podem atualizar seus prórios dados.
+
+PRODUTOS:
+    
+    Permissões:
+
+        - Apenas usuários vendedores logados podem cadastrar produtos e listá-los por id. 
+        - Um vendedor pode ver todos os produtos que listou.
+    
+    Regras de cadastro:
+
+        Os produtos a serem cadastrados devem ter a quantidade mínima de 1 exemplar.
+
+TAXAS POR TRANSAÇÃO:
+    
+    Permissões:
+        Apenas usuários administradores logados podem cadastrar taxas e listá-las.
+    
+    Outros:
+        - As taxas padrões no sistema são:
+
+            Cartão de crédito - 5%
+            Cartão de débito - 3%
+
+        - Não é possível a exclusão de taxas no sistema.
+
+MEIOS DE PAGAMENTO:
+    
+    Permissões:
+        Apenas usuários logados que não são nem administradores nem vendedores podem cadastrar cartões e listá-los.
+    
+    Regras de cadastro:
+        - Não podem ser cadastrados cartões fora do prazo de validade.
+        - Um cartão com o mesmo número pode ser registrado mais de uma vez se os métodos de pagamento forem diferentes (ex: crédito ou débito).
+    
+    Outros:
+        - Só são exibidos os 4 últimos números do cartão
+        - O número CVV é, assim como a senha do usuário, cadastrado mas não exibido.
+
+A seguir, o diagrama das tabelas:
+<br>
+
+## Diagrama
+
+<figure>
+    <img src="../pagar_me.drawio.png" alt="diagrama de tabelas">
+    <figcaption style="text-align: center">Relacionamento das tabelas</figcaption>
+</figure>
 
 <br>
 
