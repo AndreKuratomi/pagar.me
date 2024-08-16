@@ -24,6 +24,67 @@
 
 <br>
 
+## Description
+
+The <b>Pagar.me</b> API works with 4 tables: Users (Accounts), products (Product), fees (Fee), and payments (PaymentInfo). Bellow a brief description of each one and its register rules:
+
+USERS:
+
+    Types:
+
+        There are 3 types of users: Seller (seller), Administrador (admin) and the common user (the one who's neither admin nor seller).
+
+    Permissons:
+
+        - Only logged admin users may register another user and list them.
+        - All logged users may update their own data.
+
+
+PRODUCTS:
+
+    Permissons:
+
+        - Only logged seller users can register products and list them by id. 
+        - A seller may list all of its registered products.
+
+    Register rules:
+
+        All products to be registered may have at least 1 copy.
+
+FEES:
+
+    Permissons:
+
+        Only logged admin users can register fees and list them.
+
+    Other info:
+
+        - The default system fees are:
+
+            Credit card - 5%
+            Debit card - 3%
+
+        - Fees cannot be deleted.
+
+PAYMENT INFO:
+
+    Permissons:
+
+        Only logged users that are neither administradors nor sellers can register cards and list them.
+    
+    Register rules:
+
+        - Card numbers out of the expiration date cannot be registered.
+        - A card number may be registerd more than once if its payments metyhods are different (eg: credit or debit).
+    
+    Other info:
+
+        - Only the last 4 card number digits are displayed.
+        - As well as the user's password, the card's CVV is registered but not displayed.
+
+Bellow the tables diagram:
+<br>
+
 ## Diagram
 
 <figure>
