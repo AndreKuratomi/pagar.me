@@ -157,7 +157,7 @@ py -m venv venv --upgrade-deps
 
 LINUX:
 ```
-source/venv/bin/activate
+source venv/bin/activate
 ```
 
 WINDOWS:
