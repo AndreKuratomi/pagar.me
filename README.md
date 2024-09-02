@@ -221,7 +221,7 @@ py manage.py runserver
 
 ## Documentation
 
-For full description of endpoints and its responses check the insomnia documentation on the link bellow:
+For full description of endpoints and its responses check the insomnia documentation on the link bellow (necessary free login account):
 
 https://pagar-5frujasuz-abkuras-projects.vercel.app/
 
