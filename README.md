@@ -7,7 +7,7 @@
 - [Instalation](#instalation)
 - [Documentation](#documentation)
 - [References](#references)
-- [Terms_of_use](#terms_of_use)
+- [Terms_of_use](#terms-of-use)
 
 <br>
 
@@ -111,7 +111,7 @@ git init
 ```
 
 <br>
-<h3>1. Clone the repository <b>pagar.me</b> by your machine terminal or by the IDE:</h3>
+<h3>1. Clone the repository <b>pagar.me</b> by your machine terminal or by the IDE's:</h3>
 
 ```
 git clone https://github.com/AndreKuratomi/pagar.me.git
@@ -198,7 +198,7 @@ reg.exe add HKLM\SYSTEM\CurrentControlSet\Control\FileSystem /v LongPathsEnabled
 ```
 <br>
 
-<h3>3. Run the aplication with your IDE:</h3>
+<h3>3. Open the aplication with your IDE:</h3>
 
 ```
 code .
@@ -241,6 +241,6 @@ https://pagar-5frujasuz-abkuras-projects.vercel.app/
 
 <br>
 
-## Terms_of_use
+## Terms of use
 
 This project is exclusively for didatic purposes and has no commercial intent.
