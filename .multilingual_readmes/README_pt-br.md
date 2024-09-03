@@ -1,5 +1,6 @@
 # PAGAR.ME
 
+- [Traduções](#traduções)
 - [Sobre](#sobre)
 - [Instalação](#instalação)
 - [Diagrama](#diagrama)
